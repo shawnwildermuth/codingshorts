@@ -1,0 +1,16 @@
+﻿@page "{id}"
+@model Bechdel.Pages.FilmModel
+@{
+}
+
+<a href="/" class="btn btn-dark btn-sm">&lt; Back</a>
+<div">
+  <img src="@Model.Film.PosterUrl" class="w-25 border float-end" alt="@Model.Film.Title" />
+  <h3>@Model.Film.Title</h3>
+  <div>Rating: @Model.Film.Rating</div>
+  <div>Year: @Model.Film.Year</div>
+  <div>Passed: @(Model.Film.Passed ? "Passed" : "Failed")</div>
+  <div>Reason: @Model.Film.Reason</div>
+  <div>@Model.Film.Overview</div>
+</div>
+
