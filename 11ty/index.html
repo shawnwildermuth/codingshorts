@@ -1,0 +1,19 @@
+---
+title: This is the home page
+colors:
+  - blue
+  - red
+  - green
+---
+<h1>{{ title }}</h1>
+<p>This is a generated page...</p>
+<!-- <ul>
+  {% for color in colors %}
+  <li>{{ color }}</li>
+  {% endfor %}
+</ul> -->
+<ul>
+  {% for entry in collections.blogs %}
+    <li><a href="{{ entry.url  }}">{{ entry.data.title }}</a></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <link rel="stylesheet" href="css/site.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+      integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.1/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body class="bg-black">
+    <div class="bg-slate-200">
+      <header class="bg-amber-700 p-4 text-slate-200 flex justify-between">
+        <h1>Demo</h1>
+        <div x-data="{ showMenu: false }">
+          <div class="text-xl cursor-pointer" @click="showMenu = !showMenu">
+            &#9776;
+          </div>
+          <menu class="static">
+            <ul
+              class="absolute top-16 -right-32 text-lg text-center w-32 text-black font-semibold duration-500 transition-all"
+              x-bind:class="showMenu ? 'show' : ''"
+            >
+              <li class="bg-yellow-300 p-2 hover:bg-yellow-400">
+                <a href="#">Home</a>
+              </li>
+              <li class="bg-yellow-300 p-2 hover:bg-yellow-400">
+                <a href="#">About</a>
+              </li>
+              <li class="bg-yellow-300 p-2 hover:bg-yellow-400">
+                <a href="#">Contact</a>
+              </li>
+              <li class="bg-yellow-300 p-2 hover:bg-yellow-400">
+                <a href="#">Privacy</a>
+              </li>
+            </ul>
+          </menu>
+        </div>
+      </header>
+      <section class="p-4 mx-auto container">
+        <h2>Movies that Pass the Bechdel Test</h2>
+        <p>This is a list of movies that pass the Bechdel Test.</p>
+        <div class="grid grid-cols-3 gap-2" x-data="{ films: [] }"
+             x-init="films = (await axios('https://bechdel.azurewebsites.net/api/films/1994')).data.results">
+          <template x-for="film in films">
+            <div class="bg-white rounded shadow-lg p-4">
+              <img
+                class="float-right w-24 ml-1"
+                x-bind:src="film.posterUrl"
+                alt="Shawshank"
+              />
+              <h6 x-text="film.title"></h6>
+              <div>
+                <dl>
+                  <dt>Year:</dt>
+                  <dd x-text="film.year"></dd>
+                  <dt>Rating:</dt>
+                  <dd  x-text="film.rating"></dd>
+                  <dt>Test:</dt>
+                  <dd x-text="film.passed"></dd>
+                </dl>
+                <div class="flex" x-data="{ isOpen: false }">
+                  <button
+                    @click="isOpen = !isOpen"
+                    class="px-2 mr-2 h-6 hover:bg-gray-200 font-bold text-xl"
+                    x-text="isOpen ? '&lt;' : '&gt;'"
+                  >
+                    &gt;
+                  </button>
+                  <div class="text-sm">
+                    <div class="font-bold">Description:</div>
+                    <p x-text="film.overview" x-show="isOpen"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+      <footer
+        class="bg-amber-600 text-center text-lg font-bold text-yellow-400"
+      >
+        <p>&copy; 2021</p>
+      </footer>
+    </div>
+  </body>
+</html>

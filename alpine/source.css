@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+  dl {
+    @apply grid grid-cols-4 gap-x-1;
+  }
+  dt {
+    @apply font-bold text-right;
+  }
+  dd {
+    @apply col-span-3;
+  }
+}
+
+@layer components {
+  h1 { @apply text-2xl font-bold; }
+  h2 { @apply text-xl font-bold; }
+  h3 { @apply text-xl; }
+  h4 { @apply text-lg font-bold; }
+  h5 { @apply text-lg; }
+  h6 { @apply text-base font-bold; }
+}
+
+menu .show {
+  right: 0rem;
+}

@@ -1,0 +1,17 @@
+﻿@page 
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+  @foreach (var film in Model.Films)
+  {
+    <div class="col-3 border m-1">
+      <img src="@film.PosterUrl" alt="@film.Title" class="float-end w-50" />
+      <h3>@film.Title</h3>
+      <a href="/film/@film.IMDBId" class="btn btn-primary">View</a>
+    </div>
+  }
+
+</div>

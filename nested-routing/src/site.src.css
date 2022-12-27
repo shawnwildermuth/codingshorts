@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,h2,h3 {
+    @apply font-bold;
+  }
+  h1 { @apply text-2xl }
+  h2 { @apply text-xl }
+  h3 { @apply text-lg }
+  h4 { @apply text-lg }
+}
+
+@layer utilities {
+  button, a.button, input[type=submit] {
+    @apply p-1 bg-green-700 text-white text-center hover:bg-green-800 hover:text-gray-200 border border-gray-700 rounded my-1;
+  }
+
+  input[type=text],
+  input[type=number] {
+    @apply border p-2 text-lg rounded;
+  }
+
+  label {
+    @apply font-bold;
+  }
+}

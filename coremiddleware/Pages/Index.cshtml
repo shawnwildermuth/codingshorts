@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<div>
+  <h1 class="display-4">Welcome</h1>
+  @foreach (var msg in Model.Messages)
+  {
+    <div class="border p-1 my-1">
+      <div>From: @msg?.Sender?.Name</div>
+      <div>To: @msg?.Receiver?.Name</div>
+      <div>Date: @msg?.MessageDate.ToShortDateString() - @msg?.MessageDate.ToShortTimeString()</div>
+      <p>@msg?.Text</p>
+    </div>
+  }
+</div>
