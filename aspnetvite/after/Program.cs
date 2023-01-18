@@ -32,10 +32,10 @@ app.MapGet("api/films", async (BechdelDataService ds, int? page, int? pageSize) 
   return Results.Ok(data);
 }).Produces<IEnumerable<Film>>(contentType: "application/json").Produces(404).ProducesProblem(500);
 
-app.UseSpa(cfg => {
-  cfg.UseProxyToSpaDevelopmentServer("http://localhost:5000");
-});
+// app.UseSpa(cfg => {
+//   cfg.UseProxyToSpaDevelopmentServer("http://localhost:5000");
+// });
 
-//app.MapFallbackToPage("/FilmList");
+//app.MapFallbackToPage("/FilmList/{*path}", "/FilmList");
 
 app.Run();
