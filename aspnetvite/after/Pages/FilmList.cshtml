@@ -1,0 +1,14 @@
+@page
+<environment include="Development">
+  <script type="module" src="http://localhost:5000/src/main.js"></script>  
+</environment>
+<environment include="Production">
+@section Styles {
+  <link rel="stylesheet" asp-href-include="/client/assets/index-*.css">
+}
+@section Scripts {
+  <script asp-src-include="/client/assets/index-*.js"></script>
+}
+</environment>
+<h1>Film List</h1>
+<div id="app"></div>
