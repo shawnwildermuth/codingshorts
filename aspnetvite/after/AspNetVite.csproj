@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="7.0.2" />
   </ItemGroup>
 
+  <Target Name='CompileClient' BeforeTargets="Publish"> 
+    <Exec WorkingDirectory="./client" Command="npm install" />
+    <Exec WorkingDirectory="./client" Command="npm run build" />
+  </Target>
+
 </Project>
