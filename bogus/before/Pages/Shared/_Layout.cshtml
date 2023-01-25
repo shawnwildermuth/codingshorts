@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - FakingIt</title>
+  <link rel="stylesheet" href="~/css/site.css" />
+ 
+</head>
+<body class="bg-orange-800">
+  <header class="bg-gray-800 text-white flex justify-between p-2">
+    <h1 class="font-bold text-2xl"><a href="/">Faking It</a></h1>
+    <ul class="flex flex-column my-2">
+      <li class="">
+        <a class="m-1 p-2 rounded bg-orange-900 hover:bg-orange-700 text-white font-bold" asp-page="/Index">Home</a>
+      </li>
+      <li class="">
+        <a class="m-1 p-2 rounded bg-orange-900 hover:bg-orange-700 text-white font-bold" asp-page="/Privacy">Privacy</a>
+      </li>
+    </ul>
+  </header>
+  <div class="container mx-auto bg-slate-100 min-h-screen">
+    <main role="main" class="px-3">
+      @RenderBody()
+    </main>
+  </div>
+
+  <footer class="text-center bg-slate-800 text-white">
+      &copy; 2023 - FakingIt - <a asp-area="" asp-page="/Privacy">Privacy</a>
+  </footer>
+
+  <script src="~/js/site.js" asp-append-version="true"></script>
+
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
