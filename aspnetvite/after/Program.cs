@@ -36,6 +36,6 @@ app.MapGet("api/films", async (BechdelDataService ds, int? page, int? pageSize) 
 //   cfg.UseProxyToSpaDevelopmentServer("http://localhost:5000");
 // });
 
-//app.MapFallbackToPage("/FilmList/{*path}", "/FilmList");
+app.MapFallbackToPage("/FilmList/{*path}", "/FilmList");
 
 app.Run();
