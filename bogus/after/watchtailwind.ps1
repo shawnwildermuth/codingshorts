@@ -1,0 +1,1 @@
+npx tailwindcss -i ./site.css -o ./wwwroot/css/site.css -w
