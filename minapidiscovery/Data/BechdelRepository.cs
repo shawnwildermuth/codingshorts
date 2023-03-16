@@ -15,7 +15,7 @@ public class BechdelRepository
   public async Task<IEnumerable<Film>> GetByYear(int year, bool? passed = null)
   {
     return (await GetFilms())
-      .Where(f => f.Year == year && passed is null ? true : f.Passed == passed)
+      .Where(f => f.Year == year && (passed is null ? true : f.Passed == passed))
       .OrderBy(f => f.Title)
       .ToList();
   }
