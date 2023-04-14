@@ -14,21 +14,16 @@ public class ClassNameGenerator : IIncrementalGenerator
   {
     var provider = context.SyntaxProvider.CreateSyntaxProvider(
       predicate: (c, _) => c is ClassDeclarationSyntax,
-      transform: (n, _) => (ClassDeclarationSyntax)n.Node)
+      transform: (n, ct) => n.SemanticModel.GetDeclaredSymbol((ClassDeclarationSyntax)n.Node, ct)?.ToDisplayString())
         .Where(m => m is not null);
 
-    var compilation = context.CompilationProvider.Combine(provider.Collect());
-
-    context.RegisterSourceOutput(compilation,
-      (spc, source) => Execute(spc, source.Left, source.Right));
+    context.RegisterSourceOutput(provider.Collect(), Execute);
   }
 
-  private void Execute(SourceProductionContext context,
-    Compilation compilation,
-    ImmutableArray<ClassDeclarationSyntax> typeList)
+  private void Execute(SourceProductionContext context, ImmutableArray<string> classDisplayStrings)
   {
     //if (!Debugger.IsAttached) Debugger.Launch();
-    if (typeList.Length == 0)
+    if (classDisplayStrings.Length == 0)
     {
       var desc = new DiagnosticDescriptor(
         "SG0001",
@@ -42,17 +37,10 @@ public class ClassNameGenerator : IIncrementalGenerator
     }
     var bldr = new StringBuilder();
 
-    foreach (var syntax in typeList)
+    foreach (var classDisplayString in classDisplayStrings)
     {
-      var symbol = compilation
-        .GetSemanticModel(syntax.SyntaxTree)
-        .GetDeclaredSymbol(syntax) as INamedTypeSymbol;
-
-      if (symbol is not null)
-      {
-        bldr.AppendLine();
-        bldr.Append($"      \"{symbol.ToDisplayString()}\",");
-      }
+      bldr.AppendLine();
+      bldr.Append($"      \"{classDisplayString}\",");
     }
 
     if (bldr.Length > 0) bldr.Length--;
