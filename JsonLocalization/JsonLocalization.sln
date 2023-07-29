@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.33920.267
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonLocalization.Web", "JsonLocalization.Web\JsonLocalization.Web.csproj", "{CCC931E4-02A7-4F7B-A7DC-5C9E1766EE04}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "client", "client\client.esproj", "{2FA67028-E2F2-4F2B-B058-7C5CD9CCC713}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCC931E4-02A7-4F7B-A7DC-5C9E1766EE04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC931E4-02A7-4F7B-A7DC-5C9E1766EE04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC931E4-02A7-4F7B-A7DC-5C9E1766EE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC931E4-02A7-4F7B-A7DC-5C9E1766EE04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA67028-E2F2-4F2B-B058-7C5CD9CCC713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA67028-E2F2-4F2B-B058-7C5CD9CCC713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA67028-E2F2-4F2B-B058-7C5CD9CCC713}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2FA67028-E2F2-4F2B-B058-7C5CD9CCC713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA67028-E2F2-4F2B-B058-7C5CD9CCC713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA67028-E2F2-4F2B-B058-7C5CD9CCC713}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD34C01B-F5DE-45A0-B3D4-83E009A204D3}
+	EndGlobalSection
+EndGlobal
