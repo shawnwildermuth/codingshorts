@@ -1,0 +1,2 @@
+GET https://arest.me/api/data/flaky
+Accept: application/json
