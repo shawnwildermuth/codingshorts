@@ -1,0 +1,26 @@
+@baseUrl=http://localhost:8888/api
+@testCarId=15
+
+GET {{baseUrl}}/cars
+
+###
+
+GET {{baseUrl}}/cars/{{testCarId}}
+
+###
+
+POST {{baseUrl}}\/cars
+Content-Type: application/json
+
+{
+  "make": "Subaru",
+  "model": "Crosstrek",
+  "year": 2021,
+  "new": false,
+  "vin": "12345678901234567",
+  "vehicleType": "SUV"
+}
+
+###
+
+{{baseUrl}}\/cars/51

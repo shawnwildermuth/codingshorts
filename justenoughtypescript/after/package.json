@@ -1,0 +1,12 @@
+{
+  "name": "justenoughtypescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}

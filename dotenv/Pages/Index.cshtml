@@ -1,0 +1,11 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Secrets</h1>
+@foreach (var secret in Model.Secrets)
+{
+  <div>@secret.Contents</div>
+}

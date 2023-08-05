@@ -1,0 +1,36 @@
+@baseAddr=http://localhost:8888/api
+
+GET {{baseAddr}}/cars
+
+###
+GET {{baseAddr}}/cars/1
+
+### 
+GET {{baseAddr}}/employees
+
+###
+
+GET {{baseAddr}}/employees/1/cars
+
+###
+GET {{baseAddr}}/employees/1/cars/22
+
+###
+
+POST {{baseAddr}}/cars
+Content-Type: application/json
+
+{
+  "id": 0,
+  "make": "Subaru",
+  "model": "Crosstrek",
+  "year": 2021,
+  "new": false,
+  "vin": "12345678901234567",
+  "vehicleType": "SUV", 
+  "picture": "https://loremflickr.com/320/240/Car/any?lock=972157951"
+}
+
+###
+
+DELETE {{baseAddr}}/cars/51

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": false,
+    "target": "ES2018",
+    "outDir": "./dist",
+	"module": "ES2015"
+  },
+  "include": [
+    "./index.ts"
+  ]
+}

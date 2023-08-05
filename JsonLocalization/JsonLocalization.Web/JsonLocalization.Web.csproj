@@ -6,4 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="..\client\src\locales\en.json" Link="Localization\en.json" />
+    <EmbeddedResource Include="..\client\src\locales\fr.json" Link="Localization\fr.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="libc.translation" Version="7.1.0" />
+  </ItemGroup>
+
 </Project>

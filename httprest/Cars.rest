@@ -1,0 +1,64 @@
+@carId=1
+@vin=94WVMO85EED178112
+@empId=5
+@lotNum=A
+
+###
+GET http://localhost:8888/api/cars
+###
+GET http://localhost:8888/api/cars/{{carId}}
+###
+GET http://localhost:8888/api/cars/{{vin}}
+
+###
+POST http://localhost:8888/api/cars
+Content-Type: application/json
+
+{
+  "id": 0,
+  "make": "Subaru",
+  "model": "Crosstrek",
+  "year": 2021,
+  "new": false,
+  "vin": "12345678901234567",
+  "vehicleType": "SUV", 
+  "picture": "https://loremflickr.com/320/240/Car/any?lock=972157951"
+}
+
+###
+PUT http://localhost:8888/api/cars/51
+Content-Type: application/json
+
+{
+  "id": 51,
+  "make": "Subaru",
+  "model": "Crosstrek",
+  "year": 2020,
+  "new": true,
+  "vin": "12345678901234567",
+  "vehicleType": "SUV", 
+  "picture": "https://loremflickr.com/320/240/Car/any?lock=972157951"
+}
+
+###
+DELETE http://localhost:8888/api/cars/51
+
+###
+GET http://localhost:8888/api/cars/{{carId}}/salesperson
+###
+GET http://localhost:8888/api/cars/{{carId}}/lot
+###
+GET http://localhost:8888/api/cars/{{vin}}/salesperson
+###
+GET http://localhost:8888/api/cars/{{vin}}/lot
+###
+GET http://localhost:8888/api/employees
+###
+GET http://localhost:8888/api/employees/{{empId}}
+###
+GET http://localhost:8888/api/employees/{{empId}}/cars
+###
+GET http://localhost:8888/api/lots
+###
+GET http://localhost:8888/api/lots/{{lotNum}}
+###

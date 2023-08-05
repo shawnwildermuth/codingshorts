@@ -1,0 +1,8 @@
+@localHost=http://localhost:8888
+
+###
+GET {{localHost}}/api/cars
+###
+GET {{localHost}}/api/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InNoYXduIiwic3ViIjoic2hhd24iLCJqdGkiOiI5NjFmOTFkMCIsImF1ZCI6WyJodHRwOi8vbG9jYWxob3N0OjYyNjEiLCJodHRwczovL2xvY2FsaG9zdDo0NDM0OSIsImh0dHA6Ly9sb2NhbGhvc3Q6ODg4OCIsImh0dHBzOi8vbG9jYWxob3N0Ojg4ODgiXSwibmJmIjoxNjg3MDU0NTg1LCJleHAiOjE2OTUwMDMzODUsImlhdCI6MTY4NzA1NDU4NywiaXNzIjoiZG90bmV0LXVzZXItand0cyJ9.a7zwQqlYwKV9oJi3PmImjE8Iia2Eelph8kSa6k7XC1A
+
