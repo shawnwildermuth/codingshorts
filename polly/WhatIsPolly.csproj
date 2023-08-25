@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Polly" Version="7.2.4" />
     <PackageReference Include="Restsharp" Version="110.2.0" />
   </ItemGroup>
 
