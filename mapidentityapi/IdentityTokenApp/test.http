@@ -1,0 +1,13 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+GET http://localhost:8088/api/foo
+//Authorization: Bearer CfDJ8F_vz6CWzNRHvPWyccRTBGZD6Kv829WRBClJDcC2kDMiBC3SjhNFQ2zEgdQd-G8IzjA7t3XtSL0sG1ifH3xToNDD6AELvjWZA4NndOYeqCNAon_KcdTlZAd1zmHLiTKVG_o3aCkA0GV9rjVWAfR-0j64rlUHssagoK_XHEavLH5ztgCVL85whu1ifd6QUYhEVtajXjc41VuEFsV8hKz1zNVJPZaGf_a5e6h3JkkMjALhUxNzoTWuXJb748hkD9D6bDktgGZGJNl1VyAyVNKUrhE56KMo2yJJ4yX8Z_SQSxVgfTqFnuu4rlQs2cKnSPdGC9jpskWkkM8dtqxP5BjsLMPU6s1dOt7CT-oB5eLorrjEsmrscZpIJmycjoeNLzAj9Vgmv3m9b72t3jorO3QHsgUZFxUyaC8jQtJ5ROZrWh-pcqH65xXgEkhKlahZcsSiMyIvXfrqC4fNCqkRcB2ma5UiyCPXuJ6bxlBfihcXPWRDP2Lo3mSJOyUU7VGvqo6Lw9pdUGjWM5peBvocke2AyYF7nr49uaqc7lOlz-Ky6iGPhU_9oTkS-g7kuuxTmVbpXarfurGp0Fv33NFOeVMVrhixvuJPaIEprm9uo6F-S65zXYzKrqWmc92ZF-34PxPsszdGlX56B5f1_TXrQ82U0NwzVkmt9SxDOBSY0OjQmYOchMLHDwgETfoIlsAI-m7xlRgcznpaElTaL4jRzuj9DdA
+
+### 
+
+POST http://localhost:8088/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "shawn@aol.com",
+  "password": "P@ssw0rd!"
+}
