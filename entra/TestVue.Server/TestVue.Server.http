@@ -1,0 +1,6 @@
+@TestVue.Server_HostAddress = http://localhost:5269
+
+GET {{TestVue.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
