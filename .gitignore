@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 test/*
+/telemetry/AddressBook.Api/.env

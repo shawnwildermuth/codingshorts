@@ -1,6 +1,9 @@
 using System.Reflection;
+using dotenv.net;
 using FluentValidation;
 using WilderMinds.MinimalApiDiscovery;
+
+DotEnv.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
