@@ -87,3 +87,5 @@ Content-Type: application/json
 DELETE {{host}}/api/entries/40/addresses/101
 ###
 
+
+GET {{$projectUrl}}/testme

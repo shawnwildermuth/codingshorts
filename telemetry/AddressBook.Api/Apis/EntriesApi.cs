@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using AddressBook.Api.Meters;
 using AddressBook.Api.Validators;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
@@ -43,11 +44,13 @@ public class EntriesApi : IApi
     return Results.Ok(results.Adapt<IEnumerable<BookEntryModel>>());
   }
 
-  public static async Task<IResult> GetEntry(IBookRepository repository, int id)
+  public static async Task<IResult> GetEntry(IBookRepository repository, EntryMeter meter, int id)
   {
     var result = await repository.GetEntry(id);
 
     if (result is null) return Results.NotFound();
+
+    meter.ReadsCounter.Add(1);
 
     return Results.Ok(result.Adapt<BookEntryModel>());
   }

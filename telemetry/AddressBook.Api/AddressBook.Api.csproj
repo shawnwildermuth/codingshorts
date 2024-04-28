@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.1.0" />
     <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="dotenv.net" Version="3.1.3" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
@@ -16,6 +17,9 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.7.0" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.7.0" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.7.1" />
     <PackageReference Include="WilderMinds.MinimalApiDiscovery" Version="1.0.4" />
   </ItemGroup>
 
