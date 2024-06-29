@@ -6,9 +6,9 @@ namespace AddressBook.Api.Data;
 public class BookContext
   : DbContext
 {
-  private readonly IConfiguration _config;
-  private readonly BookEntryFaker _entryFaker;
-  private readonly AddressFaker _addrFaker;
+  private readonly IConfiguration config;
+  private readonly BookEntryFaker entryFaker;
+  private readonly AddressFaker addrFaker;
 
   public BookContext(IConfiguration config, 
     DbContextOptions<BookContext> opt,
@@ -16,9 +16,9 @@ public class BookContext
     AddressFaker addrFaker)
     :base(opt)
   {
-    _config = config;
-    _entryFaker = entryFaker;
-    _addrFaker = addrFaker;
+    this.config = config;
+    this.entryFaker = entryFaker;
+    this.addrFaker = addrFaker;
   }
 
   public DbSet<BookEntry> BookEntries => Set<BookEntry>();
@@ -28,21 +28,21 @@ public class BookContext
   {
     base.OnConfiguring(optionsBuilder);
 
-    optionsBuilder.UseSqlServer(_config.GetConnectionString("AddressBookDb"));
+    optionsBuilder.UseSqlServer(config.GetConnectionString("AddressBookDb"));
   }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
 
-    var entries = _entryFaker.Generate(100);
+    var entries = entryFaker.Generate(100);
     var addresses = new List<Address>();
 
     int counter = 0;
     foreach (var entry in entries)
     {
       var noOfAddresses = Random.Shared.Next(0, 2);
-      var entryAddresses = _addrFaker.Generate(noOfAddresses);
+      var entryAddresses = addrFaker.Generate(noOfAddresses);
       addresses.AddRange(entryAddresses);
       counter += noOfAddresses;
 
