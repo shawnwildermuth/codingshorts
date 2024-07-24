@@ -1,0 +1,89 @@
+@host = http://localhost:8000
+
+GET {{host}}/api/entries
+Accept: application/json
+
+###
+
+GET {{host}}/api/entries/lookup
+Accept: application/json
+
+###
+GET {{host}}/api/entries/40
+Accept: application/json
+
+###
+
+POST {{host}}/api/entries
+Content-Type: application/json
+
+{
+  "companyName" : "",
+  "firstName" : "Shawn",
+  "lastName" : "Wildermuth",
+  "dateOfBirth" : "1969-03-03",
+  "gender" : "Male",
+  "cellPhone" : "404-555-1212",
+  "email" : "shawn@book.com"
+}
+
+### 
+
+PUT {{host}}/api/entries/51
+Content-Type: application/json
+
+{
+  "id": 51,
+  "companyName" : "Some Company",
+  "firstName" : "Shawn",
+  "lastName" : "Wildermuth",
+  "dateOfBirth" : "1969-03-03",
+  "gender" : "Male",
+  "cellPhone" : "404-555-1212",
+  "email" : "shawn@book.com"
+}
+
+### 
+
+DELETE {{host}}/api/entries/51
+
+###
+
+GET {{host}}/api/entries/40/addresses
+###
+GET {{host}}/api/entries/40/addresses/80
+###
+POST {{host}}/api/entries/40/addresses
+Content-Type: application/json
+
+{
+    "name": "Mega House",
+    "line1": "39347 Reece Bridge",
+    "line2": null,
+    "line3": "Suite 389",
+    "cityTown": "Gleasonburgh",
+    "stateProvince": "Tennessee",
+    "postalCode": "59529",
+    "country": "Costa Rica"
+}
+
+###
+PUT {{host}}/api/entries/40/addresses/101
+Content-Type: application/json
+
+{
+  "id": 101,
+    "name": "Mega House 2",
+    "line1": "39347 Reece Bridge",
+    "line2": "4th Floor",
+    "line3": "Suite 389",
+    "cityTown": "Gleasonburgh",
+    "stateProvince": "Tennessee",
+    "postalCode": "59529",
+    "country": "Costa Rica"
+}
+
+###
+DELETE {{host}}/api/entries/40/addresses/101
+###
+
