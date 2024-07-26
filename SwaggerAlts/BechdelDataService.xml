@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BechdelDataServer</name>
+    </assembly>
+    <members>
+        <member name="T:BechdelDataServer.Models.FilmYear">
+            <summary>
+            A Collection of Films by Year
+            </summary>
+        </member>
+        <member name="P:BechdelDataServer.Models.FilmYear.Year">
+            <summary>
+            Year the Film Was Released
+            </summary>
+            <example>2013</example>
+        </member>
+        <member name="P:BechdelDataServer.Models.FilmYear.Films">
+            <summary>
+            Collection of Films for this year
+            </summary>
+        </member>
+        <member name="T:BechdelDataServer.Models.Film">
+            <summary>
+            Represents an individual film results from the Bechdel test.
+            </summary>
+        </member>
+        <member name="P:BechdelDataServer.Models.Film.Title">
+            <summary>
+            Film Title
+            </summary>
+        </member>
+        <member name="P:BechdelDataServer.Models.Film.IMDBId">
+            <summary>
+            IMDB Id to be used to create links
+            </summary>
+        </member>
+        <member name="P:BechdelDataServer.Models.Film.ResultReason">
+            <summary>
+            Reason for a result.
+            </summary>
+            <example>ok</example>
+            <example>notalk</example>
+        </member>
+        <member name="P:BechdelDataServer.Models.Film.Success">
+            <summary>
+            Simple success or failure of the test.
+            </summary>
+        </member>
+        <member name="P:BechdelDataServer.Models.Film.Budget">
+            <summary>
+            Film Budget
+            </summary>
+        </member>
+        <member name="P:BechdelDataServer.Models.Film.DomesticGross">
+            <summary>
+            Domestic Box Office Receipts
+            </summary>
+        </member>
+        <member name="P:BechdelDataServer.Models.Film.InternationalGross">
+            <summary>
+            International Box Office Receipts
+            </summary>
+        </member>
+    </members>
+</doc>
