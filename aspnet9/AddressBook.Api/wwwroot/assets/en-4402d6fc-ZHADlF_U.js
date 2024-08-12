@@ -1,0 +1,1 @@
+const a={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(r){var e=["th","st","nd","rd"],_=r%100;return"["+r+(e[(_-20)%10]||e[_]||e[0])+"]"}};export{a as default};
