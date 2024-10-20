@@ -1,0 +1,36 @@
+﻿@page "/"
+@using WrongAboutBlazor.Components
+@inherits HomePage
+
+<PageTitle>Home</PageTitle>
+
+<h1 class="mb-2 text-2xl font-bold">Bechdel Test Films</h1>
+
+@if (ErrorMessage is not null)
+{
+  <div class="text-red-500">
+    <em>@ErrorMessage</em>
+  </div>
+}
+
+<div class="flex justify-end">
+  <select @bind="@State.CurrentYear" @bind:after="LoadYear" class="border border-gray-400 p-1 text-xl">
+    @foreach (var yr in State.Years)
+    {
+      <option value="@yr">@yr</option>
+    }
+  </select>
+</div>
+
+@if (State.Films.Any())
+{
+  <div class="grid-cols-3 grid gap-2 p-1">
+    @foreach (var film in State.Films)
+    {
+      <FilmView Film="film" />
+    }
+  </div>
+}
+
+
+

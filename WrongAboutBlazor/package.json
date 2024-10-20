@@ -1,0 +1,19 @@
+{
+  "name": "wrongaboutblazor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:css": "tailwindcss -i ./app.src.css -o ./wwwroot/css/app.css -w",
+    "build:css": "tailwindcss -i ./app.src.css -o ./wwwroot/css/app.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefix": "^1.0.1",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
+  }
+, "-vs-binding":{"ProjectOpened":["dev:css"]}
+}

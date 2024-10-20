@@ -1,0 +1,18 @@
+﻿@using WrongAboutBlazor.Bechdel
+<a href="@($"/Details/{Film.ImdbId}")">
+  <div class="flex rounded border border-gray-400 bg-white p-2 hover:bg-blue-300">
+    <div>
+      <h3 class="text-xl font-bold">@((MarkupString)Film.Title) (@Film.Year)</h3>
+      <div><strong>Rating: </strong>@Film.Rating</div>
+      <div><strong>Budget: </strong>@($"{Film.Budget.ToString("C0")}")</div>
+      <div><strong>Gross: </strong>@($"{(Film.DomesticGross + Film.InternationalGross).ToString("C0")}")</div>
+      <div class="test-sm line-clamp-3">@Film.Overview</div>
+    </div>
+    <img src="@Film.PosterUrl" alt="@Film.Title" class="w-1/3 rounded" />
+  </div>
+</a>
+
+@code {
+  [Parameter]
+  public required Film Film { get; set; }
+}

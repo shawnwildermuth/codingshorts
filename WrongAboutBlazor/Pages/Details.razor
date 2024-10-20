@@ -1,0 +1,24 @@
+﻿@page "/details/{ImdbId}"
+@inherits DetailsPage
+
+<button class="m-1 border bg-blue-400 p-1 text-black hover:bg-blue-600" onclick='history.back();'>&lt;- Back</button>
+<div class="mx-28 rounded">
+  @if (Film is not null)
+  {
+    <div class="flex justify-between">
+      <div class="w-1/2">
+        <h3 class="text-lg font-bold">@((MarkupString)Film.Title)(@Film.Year)</h3>
+        <div>@Film.Overview</div>
+        <div class="inline-block rounded-lg bg-blue-800 p-1 text-gray-200">
+          <div class="font-bold">Bechdel Results</div>
+          <div>@(Film.Passed ? "Passed" : "Failed")</div>
+          @if (!Film.Passed)
+          {
+            <div><em>Reason</em>: @Film.Reason</div>
+          }
+        </div>
+      </div>
+      <img class="max-w-3xl rounded-2xl drop-shadow-xl" src="@Film.PosterUrl" />
+    </div>
+  }
+</div>
