@@ -28,6 +28,11 @@
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
+  <Target Name="NpmRunBuild" BeforeTargets="BeforePublish">
+    <Exec Command="npm ci" />
+    <Exec Command="npm run build:css" />
+  </Target>
+  
   <ItemGroup>
     <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="WrongAboutBlazor.Bechdel" ClassName="BechdelClient">
       <SourceUri>https://bechdel.azurewebsites.net/swagger/v1/swagger.json</SourceUri>
