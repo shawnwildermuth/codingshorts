@@ -17,8 +17,8 @@ const store = useStore();
   </header>
 
   <section>
-    <div v-if="store.error">{{ store.error}}</div>
-    <div v-if="store.loading">Loading...</div>
+    <div>{{ store.error ? store.error : '&nbsp;'}}</div>
+    <div>{{ store.loading ? 'Loading...' : '&nbsp;'}}</div>
     <RouterView />
   </section>
 

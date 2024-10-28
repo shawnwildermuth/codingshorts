@@ -1,7 +1,8 @@
 {
-  "name": "greatest",
-  "version": "0.0.0",
+  "name": "tw4",
+  "version": "0.0.4",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -9,11 +10,11 @@
   },
   "dependencies": {
     "number-abbreviate": "^2.0.0",
-    "vue": "^3.3.4",
+    "vue": "^3.5.12",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.3.4",
-    "vite": "^4.4.9"
+    "@vitejs/plugin-vue": "^5.1.4",
+    "vite": "^5.4.9"
   }
 }
