@@ -1,0 +1,15 @@
+services:
+  sql: 
+    image: postgres:latest
+    container_name: test-postgres
+    environment:
+      - POSTGRES_USER=someuser
+      - POSTGRES_PASSWORD=P@ssw0rd!
+    ports:
+      - 5432:5432
+    volumes:
+      - dbdata:/var/opt/mssql
+
+volumes:
+  dbdata:
+    name: postgres-data

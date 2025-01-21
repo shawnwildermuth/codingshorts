@@ -1,0 +1,11 @@
+@NewEfFeatures_HostAddress = http://localhost:5170
+
+GET {{NewEfFeatures_HostAddress}}/api/flights
+Accept: application/json
+
+###
+
+GET {{NewEfFeatures_HostAddress}}/api/flights/sw0074
+Accept: application/json
+
+###

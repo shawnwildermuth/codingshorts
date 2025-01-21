@@ -1,0 +1,1 @@
+GET http://localhost:8088/api/customers
