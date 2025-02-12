@@ -1,1 +1,6 @@
 GET http://localhost:8088/api/customers
+
+###
+
+GET http://localhost:8088/api/customers/50
+
