@@ -1,0 +1,55 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoeMoney.API", "ShoeMoney.API\ShoeMoney.API.csproj", "{18A7A85A-6414-4CD6-B207-CFB7454E501C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoeMoney.Common", "ShoeMoney.Common\ShoeMoney.Common.csproj", "{5E8433EA-028E-4063-8429-9CCA22D63AC3}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "shoemoney.store", "ShoeMoney.Store\shoemoney.store.esproj", "{76D72851-098B-427B-B696-D7E44F56804E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6EF6179D-39F6-4D13-9255-61F6CDF8AE5F}"
+	ProjectSection(SolutionItems) = preProject
+		..\readme.md = ..\readme.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoeMoney.Host", "ShoeMoney.Host\ShoeMoney.Host.csproj", "{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoeMoney.OrderProcessing", "ShoeMoney.OrderProcessing\ShoeMoney.OrderProcessing.csproj", "{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18A7A85A-6414-4CD6-B207-CFB7454E501C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A7A85A-6414-4CD6-B207-CFB7454E501C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A7A85A-6414-4CD6-B207-CFB7454E501C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A7A85A-6414-4CD6-B207-CFB7454E501C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E8433EA-028E-4063-8429-9CCA22D63AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E8433EA-028E-4063-8429-9CCA22D63AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E8433EA-028E-4063-8429-9CCA22D63AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E8433EA-028E-4063-8429-9CCA22D63AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D72851-098B-427B-B696-D7E44F56804E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D72851-098B-427B-B696-D7E44F56804E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D72851-098B-427B-B696-D7E44F56804E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{76D72851-098B-427B-B696-D7E44F56804E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D72851-098B-427B-B696-D7E44F56804E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D72851-098B-427B-B696-D7E44F56804E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0EB9C8F-0FC5-4277-AF18-98AAB57F90A3}
+	EndGlobalSection
+EndGlobal

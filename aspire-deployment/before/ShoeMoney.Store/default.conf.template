@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    #listen       ${VITE_PORT};
+    #listen  [::]:${VITE_PORT};
+    server_name  localhost;
+
+    access_log  /var/log/nginx/server.access.log  main;
+
+    location / {
+        root /usr/share/nginx/html;
+        try_files $uri $uri/ /index.html;
+    }
+}
