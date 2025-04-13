@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  input,
+  select,
+  textarea {
+    @apply input input-bordered w-full placeholder:italic focus:outline-none mb-1 focus:border-2 focus:border-slate-400;
+  }
+  
+  input.error,
+  select.error,
+  textarea.error {
+    @apply border-red-800;
+  }
+  
+  label {
+    @apply form-control w-full;
+  }
+}

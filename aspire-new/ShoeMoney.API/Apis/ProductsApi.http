@@ -1,0 +1,7 @@
+GET {{$projectUrl}}/api/products
+###
+GET {{$projectUrl}}/api/products?pageSize=24&page=1
+###
+GET {{$projectUrl}}/api/products/1
+###
+
