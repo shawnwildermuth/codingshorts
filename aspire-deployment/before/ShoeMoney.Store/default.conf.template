@@ -1,13 +1,21 @@
 server {
     listen 80;
-    #listen       ${VITE_PORT};
-    #listen  [::]:${VITE_PORT};
     server_name  localhost;
+    gzip on;
+    access_log  /var/log/nginx/host.access.log  main;
+    root /usr/share/nginx/html;
+
+    index index.html index.htm; 
 
     access_log  /var/log/nginx/server.access.log  main;
 
     location / {
-        root /usr/share/nginx/html;
         try_files $uri $uri/ /index.html;
+    }
+
+    location = /health {
+      access_log off;
+      add_header 'Content-Type' 'application/json';
+      return 200 '{"status":"UP"}';
     }
 }

@@ -13,11 +13,9 @@ builder.EnableMessaging(cfg => cfg.AddConsumer<OrderConsumer>());
 builder.Services.AddDbContext<ShoeContext>(opt =>
 {
   opt.UseSqlServer(
-    $"{builder.Configuration.GetConnectionString("show-money")};MultipleActiveResultSets=true"
-    );
+    $"{builder.Configuration.GetConnectionString("shoe-money")};MultipleActiveResultSets=true",
+    options => options.EnableRetryOnFailure(5, TimeSpan.FromMinutes(1), null));
 });
-
-builder.AddRabbitMQClient("order-queue");
 
 var host = builder.Build();
 

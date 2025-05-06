@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.EnableMonitoring();
 
 builder.AddRedisDistributedCache("cache");
-builder.AddRabbitMQClient("order-queue");
+
 builder.Services.AddDbContext<ShoeContext>(opt =>
 {
   opt.UseSqlServer(

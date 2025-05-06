@@ -3,6 +3,8 @@
 using MassTransit;
 using MassTransit.Configuration;
 
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -30,15 +32,29 @@ public static class Configuration
     where TBuilder : IHostApplicationBuilder
   {
 
+    var connection = builder.Configuration.GetConnectionString("order-queue")!;
+    builder.Services.AddSqlServerMigrationHostedService();
+
+    builder.Services.AddOptions<SqlTransportOptions>().Configure(options =>
+    {
+      SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connection);
+
+      options.ConnectionString = connection;
+      //options.Schema = "transport";
+      //options.Role = "transport";
+    });
+
     builder.Services.AddMassTransit(cfg =>
     {
       if (callback is not null) callback(cfg);
 
-      var connection = builder.Configuration.GetConnectionString("order-queue")!;
+      cfg.AddSqlMessageScheduler();
 
-      cfg.UsingRabbitMq((ctx, config) =>
+      cfg.UsingSqlServer((ctx, config) =>
       {
-        config.Host(new Uri(connection));
+        config.UseSqlMessageScheduler();
+        config.AutoStart = true;
+
         config.ConfigureEndpoints(ctx);
       });
     });

@@ -12,8 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using MinimalApis.Discovery;
 using MinimalApis.FluentValidation;
 
-using RabbitMQ.Client;
-
 using ShoeMoney.Data;
 using ShoeMoney.Data.Entities;
 using ShoeMoney.Models;
