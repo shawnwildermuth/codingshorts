@@ -4,8 +4,6 @@ using System.Text.Json;
 
 using Mapster;
 
-using MassTransit;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +14,6 @@ using RabbitMQ.Client;
 
 using ShoeMoney.Data;
 using ShoeMoney.Data.Entities;
-using ShoeMoney.Models;
 
 using static Microsoft.AspNetCore.Http.TypedResults;
 
@@ -85,15 +82,25 @@ public class OrdersApi : IApi
   }
 
   public static async Task<IResult> CreateOrder(ShoeContext context,
-    IBus bus,
     [FromBody] Order model)
   {
-    var orderActivity = new ActivitySource("OrdersApi");
-    using var activity = orderActivity.StartActivity("Creating order message");
+    Activity.Current?.AddTag("Parent_Span_ID", Activity.Current.ParentSpanId.ToString());
 
-    await bus.Publish(new OrderCreated(model));
+    var json = JsonSerializer.Serialize(model);
+    var factory = new ConnectionFactory()
+    {
+      HostName = "localhost",
+      UserName = "guest",
+      Password = "guest"
+    };
+    using var connection = await factory.CreateConnectionAsync();
+    using var channel = await connection.CreateChannelAsync();
+    await channel.QueueDeclareAsync(ShoeConstants.OrderQueueName, false, false, false);
+    var body = Encoding.UTF32.GetBytes(json);
+    await channel.BasicPublishAsync("", ShoeConstants.OrderQueueName, true, body);
 
-    return Accepted($"");
+    return Accepted("");
+
   }
 
   public static async Task<IResult> UpdateOrder(ShoeContext context, int id, Order model)

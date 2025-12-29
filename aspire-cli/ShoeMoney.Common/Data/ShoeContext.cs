@@ -17,7 +17,7 @@ public  class ShoeContext : DbContext
   }
 
   public DbSet<Order> Orders => Set<Order>();
-  public DbSet<Category> OrderItems => Set<Category>();
+  public DbSet<OrderItem> OrderItems => Set<OrderItem>();
   public DbSet<Address> Addresses => Set<Address>();
   public DbSet<Payment> Payments => Set<Payment>();
   public DbSet<Product> Products => Set<Product>();

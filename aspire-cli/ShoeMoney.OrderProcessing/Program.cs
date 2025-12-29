@@ -1,24 +1,22 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
-using ShoeMoney;
 using ShoeMoney.Data;
 using ShoeMoney.OrderProcessing;
 
-var builder = Host.CreateApplicationBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
-builder.EnableMonitoring();
+builder.AddTelemetry();
 
-builder.EnableMessaging(cfg => cfg.AddConsumer<OrderConsumer>());
+builder.Services.AddHostedService<OrderProcessingWorker>();
 
 builder.Services.AddDbContext<ShoeContext>(opt =>
 {
-  opt.UseSqlServer(
-    $"{builder.Configuration.GetConnectionString("ShoeMoney")};MultipleActiveResultSets=true"
-    );
+  opt.UseSqlServer(builder.Configuration.GetConnectionString("ShoeMoneyDb"));
 });
 
-builder.AddRabbitMQClient("OrderQueue");
-
 var host = builder.Build();
+
+host.MapDefaultEndpoints();
 
 host.Run();

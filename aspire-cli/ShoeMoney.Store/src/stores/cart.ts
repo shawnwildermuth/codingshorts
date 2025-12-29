@@ -1,8 +1,7 @@
 import type { Address, Order, OrderItem, Payment } from '@/models';
 import { createEmptyOrder } from '@/models/Order';
 import { defineStore } from 'pinia'
-import { reactive, ref } from 'vue';
-import { useStore } from '.';
+import { ref } from 'vue';
 import { useHttp } from '@/composables/http';
 
 const http = useHttp();
@@ -10,7 +9,7 @@ const http = useHttp();
 const items = ref<Array<OrderItem>>([
   {
     id: 0,
-    productId: 271,
+    productId: 21180,
     quantity: 2,
     price: 255,
     discount: 0,
@@ -20,9 +19,9 @@ const items = ref<Array<OrderItem>>([
     orderId: 0
   }, {
     id: 0,
-    productId: 386,
+    productId: 3996,
     quantity: 2,
-    price: 255,
+    price: 199.99,
     discount: 0,
     size: "13",
     width: "E",
@@ -76,8 +75,8 @@ async function processOrder() {
   const result = await http.post("/api/orders", order.value);
   if (result) {
     order.value = undefined;
+    return true;
   }
-  return result;
 }
 
 export const useCart = defineStore('cart', () => {

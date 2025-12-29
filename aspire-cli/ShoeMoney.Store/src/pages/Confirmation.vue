@@ -71,7 +71,7 @@ async function submitOrder() {
           </div>
         </div>
         <table class="table table-fixed border border-slate-300 ">
-          <tr class v-for="item in cart.order.items">
+          <tr v-for="item in cart.order.items">
             <td class="text-center w-4">{{ item.quantity }}</td>
             <td>{{ item.product?.title }}</td>
             <td class="text-center w-16">{{ item.product?.color }}</td>

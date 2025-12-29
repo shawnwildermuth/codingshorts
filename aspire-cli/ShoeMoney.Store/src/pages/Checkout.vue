@@ -64,26 +64,26 @@ function save() {
         <table class="table table-sm table-fixed">
           <thead>
             <tr class="border-b border-slate-500">
-              <th class="w-8"></th>
               <th>Product</th>
               <th class="w-24 text-center">Quantity</th>
               <th class="w-24 text-center">Price</th>
               <th class="w-24 text-center">Discount</th>
               <th class="text-right w-24">Line Total</th>
+              <th class="w-8"></th>
             </tr>
-            <tr v-for="i in cart.items" class="text-slate-600">
-              <td><button @click="remove(i)"><delete-icon
-                    class="text-red-900/50 hover:text-red-900 w-6 h-6" /></button>
-              </td>
+            <tr v-for="i in cart.items" :key="i.id" class="text-slate-600">
               <td class="whitespace-normal">{{ i.product?.title ?? "Unknown" }}
               </td>
               <td class="text-center">{{ i.quantity }}</td>
               <td class="text-center">{{ money(i.price) }}</td>
               <td class="text-center">{{ percentage(i.discount) }}</td>
               <td class="text-right">{{ money(lineTotal(i)) }}</td>
+              <td><button @click="remove(i)" title="Remove Item"><delete-icon
+                    class="text-grey-900/50 hover:text-grey-900 w-6 h-6" /></button>
+              </td>
             </tr>
             <tr class="text-slate-600">
-              <td colspan="5"></td>
+              <td colspan="4"></td>
               <td class="text-right border-t border-b border-slate-600">{{
                 money(total) }}</td>
             </tr>

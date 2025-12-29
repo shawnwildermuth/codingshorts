@@ -3,7 +3,7 @@ import axios, { type Axios } from "axios";
 
 console.log(import.meta.env);
 const instance: Axios = axios.create({
-  baseURL: import.meta.env.VITE_APP_URL ?? "http://localhost:5001"
+  baseURL: import.meta.env.VITE_APP_URL ?? "http://localhost:8080"
 });
 
 async function get<T>(url: string) {
@@ -30,19 +30,17 @@ async function post<T>(url: string, content: T) {
     store.startRequest();
     const result = await instance.post<T>(url, content);
 
-    if (result.status === 201) {
-      return result.data;
-    } else if (result.status === 202) {
+    if (result.status === 202) {
       return true;
     } else {
       store.error = `Failed to execute POST: ${url}`;
-      return null;
     }
   } catch (e) {
     store.error = `Error during POST: ${url}`;
   }finally {
     store.endRequest();
   }
+  return false;
 } 
 
 export function useHttp() {

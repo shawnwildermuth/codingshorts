@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\readme.md = ..\readme.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoeMoney.Host", "ShoeMoney.Host\ShoeMoney.Host.csproj", "{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoeMoney.OrderProcessing", "ShoeMoney.OrderProcessing\ShoeMoney.OrderProcessing.csproj", "{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}"
 EndProject
 Global
@@ -27,10 +25,6 @@ Global
 		{18A7A85A-6414-4CD6-B207-CFB7454E501C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18A7A85A-6414-4CD6-B207-CFB7454E501C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18A7A85A-6414-4CD6-B207-CFB7454E501C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A0A47D9-95F6-46A2-8ACD-AB4F66FB883F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E8433EA-028E-4063-8429-9CCA22D63AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E8433EA-028E-4063-8429-9CCA22D63AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E8433EA-028E-4063-8429-9CCA22D63AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
