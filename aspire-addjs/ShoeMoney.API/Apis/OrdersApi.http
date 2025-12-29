@@ -1,0 +1,70 @@
+@projectUrl=http://localhost:5105
+
+GET {{projectUrl}}/api/orders
+###
+GET {{projectUrl}}/api/orders/4
+###
+POST {{projectUrl}}/api/orders
+Content-Type: application/json
+
+{
+  "orderDate": "2024-04-04",
+  "orderType": 1,
+  "contact": "Bill Smith",
+  "items": [{
+    "productId": 1,
+    "price": 44.5,
+    "quantity": 4
+  },{
+    "productId": 4,
+    "price": 12.75,
+    "quantity": 15
+  }]
+}
+
+###
+PUT {{projectUrl}}/api/orders/2
+Content-Type: application/json
+
+{
+    "id": 2,
+    "orderDate": "2024-04-04T00:00:00",
+    "notes": null,
+    "orderType": "Online",
+    "companyName": null,
+    "contact": "Bill Smith",
+    "email": null,
+    "phoneNumber": null,
+    "orderStatus": "New",
+    "shippingAddress": null,
+    "payment": {
+      "id": 2,
+      "paymentType": "Check",
+      "orderId": 2,
+      "amount": 15.25,
+      "cardNumber": null,
+      "cvv": null,
+      "expiration": null
+    },
+    "items": [
+      {
+        "id": 2,
+        "productId": 1,
+        "price": 44.50,
+        "quantity": 4.00,
+        "discount": 0,
+        "orderId": 2
+      },
+      {
+        "id": 0,
+        "productId": 3,
+        "price": 12.75,
+        "quantity": 15.00,
+        "discount": 0,
+        "orderId": 2
+      }
+    ]
+  }
+
+###
+DELETE {{projectUrl}}/api/orders/3
