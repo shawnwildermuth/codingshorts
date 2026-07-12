@@ -1,0 +1,60 @@
+@baseUrl = https://localhost:49538
+
+# OrderStatus values:   Pending=0, Confirmed=1, Baking=2, ReadyForCollection=3, OutForDelivery=4, Completed=5, Cancelled=6
+# FulfilmentType values: InStore=0, Collection=1, Delivery=2
+# PaymentMethod values:  Cash=0, Card=1, BankTransfer=2, OnlinePayment=3
+# PaymentStatus values:  Unpaid=0, Paid=1, Refunded=2, Failed=3
+
+### Get all orders
+GET {{baseUrl}}/api/orders/
+
+### Get order by ID (includes line items)
+GET {{baseUrl}}/api/orders/1
+
+### Get orders by status (Pending, Confirmed, Baking, ReadyForCollection, OutForDelivery, Completed, Cancelled)
+GET {{baseUrl}}/api/orders/status/Pending
+
+### Get orders for a specific customer
+GET {{baseUrl}}/api/orders/customer/1
+
+### Get total paid revenue for a given date
+GET {{baseUrl}}/api/orders/revenue?date=2025-12-24
+
+### Place a new order (VAT calculated automatically; loyalty points awarded for members)
+POST {{baseUrl}}/api/orders/
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "requiredByDate": null,
+  "fulfilment": 0,
+  "paymentMethod": 1,
+  "discountAmount": 0.00,
+  "deliveryAddress": null,
+  "notes": null,
+  "servedBy": "Bethany",
+  "items": [
+    { "productId": 1, "customPieId": null, "quantity": 2, "specialRequests": null },
+    { "productId": null, "customPieId": 2, "quantity": 1, "specialRequests": "Extra crispy" }
+  ]
+}
+
+### Update order status
+PATCH {{baseUrl}}/api/orders/1/status
+Content-Type: application/json
+
+{
+  "status": 1
+}
+
+### Update order payment details
+PATCH {{baseUrl}}/api/orders/1/payment
+Content-Type: application/json
+
+{
+  "paymentStatus": 1,
+  "paymentMethod": 1
+}
+
+### Delete an order
+DELETE {{baseUrl}}/api/orders/1

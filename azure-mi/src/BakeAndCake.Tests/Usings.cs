@@ -1,0 +1,9 @@
+﻿global using BakeAndCake.Api.Repositories.Interfaces;
+global using BakeAndCake.Api.Data.Entities;
+global using BakeAndCake.Api.Models;
+global using BakeAndCake.Tests.Helpers;
+global using Xunit;
+global using FluentAssertions;
+global using NSubstitute;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Http.HttpResults;

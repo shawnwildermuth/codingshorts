@@ -1,0 +1,4 @@
+@baseUrl = https://localhost:49538
+
+### Health check
+GET {{baseUrl}}/health

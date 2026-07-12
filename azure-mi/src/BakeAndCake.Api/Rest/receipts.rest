@@ -1,0 +1,25 @@
+@baseUrl = https://localhost:49538
+
+### Get all receipts
+GET {{baseUrl}}/api/receipts/
+
+### Get receipt by ID
+GET {{baseUrl}}/api/receipts/1
+
+### Get receipt by order ID
+GET {{baseUrl}}/api/receipts/order/1
+
+### Get receipt by receipt number
+GET {{baseUrl}}/api/receipts/number/BPS-20251224-ABC123
+
+### Issue a receipt (marks order as Paid and Completed, calculates change)
+POST {{baseUrl}}/api/receipts/
+Content-Type: application/json
+
+{
+  "orderId": 1,
+  "amountPaid": 30.00
+}
+
+### Delete a receipt
+DELETE {{baseUrl}}/api/receipts/1

@@ -1,0 +1,65 @@
+@baseUrl = https://localhost:49538
+
+# PieSize values:     Individual=0, Small=1, Medium=2, Large=3, ExtraLarge=4
+# PastryCrust values: ShortCrust=0, PuffPastry=1, HotWaterCrust=2, FiloFatless=3, GlutenFree=4
+# FillingType values: Fruit=0, Custard=1, Meat=2, Vegetable=3, Cheese=4, Chocolate=5, Nut=6, Cream=7
+
+### Get all custom pies
+GET {{baseUrl}}/api/custom-pies/
+
+### Get custom pies awaiting approval (soonest deadline first)
+GET {{baseUrl}}/api/custom-pies/pending-approval
+
+### Get custom pies for a specific customer
+GET {{baseUrl}}/api/custom-pies/customer/1
+
+### Get custom pie by ID
+GET {{baseUrl}}/api/custom-pies/1
+
+### Submit a custom pie order for review
+POST {{baseUrl}}/api/custom-pies/
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "name": "Margaret's Birthday Pie",
+  "dedicationMessage": "Happy Birthday, Margaret!",
+  "size": 2,
+  "crustType": 0,
+  "primaryFilling": 0,
+  "specialInstructions": "Extra cinnamon, please",
+  "requiredByDate": "2025-12-25T10:00:00Z",
+  "ingredients": [
+    { "ingredientId": 1, "quantity": 0.5 },
+    { "ingredientId": 2, "quantity": 0.3 }
+  ]
+}
+
+### Update a custom pie (only allowed before approval)
+PUT {{baseUrl}}/api/custom-pies/1
+Content-Type: application/json
+
+{
+  "name": "Margaret's Birthday Pie",
+  "dedicationMessage": "Happy Birthday, dear Margaret!",
+  "size": 3,
+  "crustType": 0,
+  "primaryFilling": 0,
+  "specialInstructions": "Extra cinnamon and nutmeg",
+  "requiredByDate": "2025-12-25T10:00:00Z",
+  "ingredients": [
+    { "ingredientId": 1, "quantity": 0.6 },
+    { "ingredientId": 2, "quantity": 0.3 }
+  ]
+}
+
+### Approve a custom pie design and set the price quote
+POST {{baseUrl}}/api/custom-pies/2/approve
+Content-Type: application/json
+
+{
+  "estimatedPrice": 28.50
+}
+
+### Delete a custom pie
+DELETE {{baseUrl}}/api/custom-pies/1

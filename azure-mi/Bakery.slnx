@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="./bakery.client/bakery.client.esproj">
+    <Build />
+  </Project>
+  <Project Path="./Bakery.Api/Bakery.Api.csproj" />
+  <Project Path="BakeryAppHost/Bakery.AppHost.csproj" />
+</Solution>

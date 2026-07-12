@@ -1,0 +1,68 @@
+@baseUrl = https://localhost:49538
+
+# Category values: Pie=0, Tart=1, Quiche=2, Cake=3, Pastry=4, Bread=5, Cookie=6, Other=7
+
+### Get all products
+GET {{baseUrl}}/api/products/
+
+### Get all available products
+GET {{baseUrl}}/api/products/available
+
+### Get featured Pie of the Week
+GET {{baseUrl}}/api/products/pie-of-the-week
+
+### Get products by category (Pie, Tart, Quiche, Cake, Pastry, Bread, Cookie, Other)
+GET {{baseUrl}}/api/products/category/Pie
+
+### Get product by ID
+GET {{baseUrl}}/api/products/1
+
+### Create a new product
+POST {{baseUrl}}/api/products/
+Content-Type: application/json
+
+{
+  "name": "Classic Apple Pie",
+  "description": "A golden-crusted apple pie with cinnamon and nutmeg",
+  "shortDescription": "Classic apple pie",
+  "price": 12.99,
+  "category": 0,
+  "isAvailable": true,
+  "isPieOfTheWeek": false,
+  "imageUrl": null,
+  "allergyInformation": "Contains gluten, dairy",
+  "preparationTimeMinutes": 45,
+  "ingredients": [
+    { "ingredientId": 1, "quantityRequired": 0.5 },
+    { "ingredientId": 2, "quantityRequired": 0.3 }
+  ]
+}
+
+### Update a product
+PUT {{baseUrl}}/api/products/9
+Content-Type: application/json
+
+{
+  "name": "Classic Apple Pie",
+  "description": "A golden-crusted apple pie with cinnamon and nutmeg",
+  "shortDescription": "Classic apple pie",
+  "price": 13.99,
+  "category": 0,
+  "isAvailable": true,
+  "isPieOfTheWeek": false,
+  "imageUrl": null,
+  "allergyInformation": "Contains gluten, dairy",
+  "preparationTimeMinutes": 45,
+  "ingredients": [
+    { "ingredientId": 1, "quantityRequired": 0.5 }
+  ]
+}
+
+### Set product availability
+PATCH {{baseUrl}}/api/products/9/availability?available=true
+
+### Promote product to Pie of the Week (clears any previous selection)
+PATCH {{baseUrl}}/api/products/9/pie-of-the-week
+
+### Delete a product
+DELETE {{baseUrl}}/api/products/9

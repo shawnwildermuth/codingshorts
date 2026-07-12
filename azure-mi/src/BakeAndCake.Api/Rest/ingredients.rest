@@ -1,0 +1,54 @@
+@baseUrl = https://localhost:49538
+
+### Get all ingredients
+GET {{baseUrl}}/api/ingredients/
+
+### Get ingredients at or below their reorder threshold
+GET {{baseUrl}}/api/ingredients/low-stock
+
+### Get allergen ingredients
+GET {{baseUrl}}/api/ingredients/allergens
+
+### Get ingredient by ID
+GET {{baseUrl}}/api/ingredients/1
+
+### Create a new ingredient
+POST {{baseUrl}}/api/ingredients/
+Content-Type: application/json
+
+{
+  "name": "Plain Flour",
+  "description": "All-purpose wheat flour",
+  "unit": "kg",
+  "costPerUnit": 1.20,
+  "stockQuantity": 50.0,
+  "reorderThreshold": 10.0,
+  "isAllergen": true,
+  "allergenInfo": "Contains gluten"
+}
+
+### Update an ingredient
+PUT {{baseUrl}}/api/ingredients/21
+Content-Type: application/json
+
+{
+  "name": "Plain Flour",
+  "description": "All-purpose wheat flour",
+  "unit": "kg",
+  "costPerUnit": 1.30,
+  "stockQuantity": 45.0,
+  "reorderThreshold": 10.0,
+  "isAllergen": true,
+  "allergenInfo": "Contains gluten"
+}
+
+### Adjust ingredient stock (positive = restock, negative = consume)
+PATCH {{baseUrl}}/api/ingredients/21/stock
+Content-Type: application/json
+
+{
+  "quantity": 20.0
+}
+
+### Delete an ingredient
+DELETE {{baseUrl}}/api/ingredients/21

@@ -1,0 +1,50 @@
+@baseUrl = https://localhost:49538
+
+### Get all customers (ordered by surname)
+GET {{baseUrl}}/api/customers/
+
+### Get customer by ID
+GET {{baseUrl}}/api/customers/1
+
+### Search customers by name, email or phone
+GET {{baseUrl}}/api/customers/search?term=margaret
+
+### Get all orders for a customer
+GET {{baseUrl}}/api/customers/1/orders
+
+### Create a new customer
+POST {{baseUrl}}/api/customers/
+Content-Type: application/json
+
+{
+  "firstName": "Bethany",
+  "lastName": "Smith",
+  "email": "bethany.smith@example.com",
+  "phone": "+44 7700 900123",
+  "address": "12 Pie Lane, London",
+  "isLoyaltyMember": true
+}
+
+### Update a customer
+PUT {{baseUrl}}/api/customers/4
+Content-Type: application/json
+
+{
+  "firstName": "Bethany",
+  "lastName": "Smith",
+  "email": "bethany.smith@example.com",
+  "phone": "+44 7700 900456",
+  "address": "12 Pie Lane, London",
+  "isLoyaltyMember": true
+}
+
+### Adjust loyalty points (positive = earn, negative = redeem)
+PATCH {{baseUrl}}/api/customers/4/loyalty
+Content-Type: application/json
+
+{
+  "points": 50
+}
+
+### Delete a customer
+DELETE {{baseUrl}}/api/customers/4
