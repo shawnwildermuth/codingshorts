@@ -6,6 +6,22 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var appConfigString = builder.Configuration.GetConnectionString("AppConfiguration");
+if (appConfigString is null) throw new InvalidOperationException("Missing connection string");
+
+builder.Configuration.Sources.Clear();
+
+builder.Configuration.AddCommandLine(args)
+  .AddJsonFile("appsettings.json")
+  .AddJsonFile("appsettings.Development", true)
+  .AddAzureAppConfiguration(cfg =>
+  {
+    cfg.Connect(appConfigString)
+    .Select("DEV:*")
+    .TrimKeyPrefix("DEV:");
+  })
+  .AddEnvironmentVariables();
+
 builder.Services.AddDbContext<BakeAndCakeDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("BakeAndCakeDb"),
@@ -82,6 +98,9 @@ app.MapGet("/health", () => Results.Ok(new
   timestamp = DateTime.UtcNow
 }))
 .WithTags("Health");
+
+var name = app.Configuration["SiteName"];
+
 
 app.Run();
 
