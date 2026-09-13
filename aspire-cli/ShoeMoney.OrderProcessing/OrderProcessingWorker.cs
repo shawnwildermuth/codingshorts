@@ -13,6 +13,7 @@ using ShoeMoney.Models;
 namespace ShoeMoney.OrderProcessing;
 
 public class OrderProcessingWorker(
+  IConfiguration config,
   ILogger<OrderProcessingWorker> logger,
   IServiceProvider services)
   : IHostedService, IDisposable
@@ -25,11 +26,15 @@ public class OrderProcessingWorker(
   {
     if (_connection is null)
     {
+      var connectionString = config.GetConnectionString("queue");
+      if (string.IsNullOrWhiteSpace(connectionString))
+      {
+        throw new ArgumentNullException("queue");
+      }
+
       var factory = new ConnectionFactory()
       {
-        HostName = "localhost",
-        UserName = "guest",
-        Password = "guest"
+        Uri = new Uri(connectionString)
       };
 
       _connection = await factory.CreateConnectionAsync();
@@ -37,8 +42,8 @@ public class OrderProcessingWorker(
 
     _channel = await _connection.CreateChannelAsync();
 
-    await _channel.QueueDeclareAsync(ShoeConstants.OrderQueueName, false, false, false);
-    await _channel.QueueDeclareAsync(ShoeConstants.ErrorQueueName, false, false, false);
+    await _channel.QueueDeclareAsync(ShoeConstants.OrderQueueName);
+    await _channel.QueueDeclareAsync(ShoeConstants.ErrorQueueName);
 
     stoppingToken.Register(() => Stop());
 

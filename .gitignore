@@ -400,3 +400,4 @@ FodyWeavers.xsd
 test/*
 /telemetry/AddressBook.Api/.env
 /WrongAboutBlazor/wwwroot/css/app.css
+*.lscache

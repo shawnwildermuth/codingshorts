@@ -1,4 +1,5 @@
 using System.Reflection;
+using Azure.Identity;
 using BakeAndCake.Api.Data;
 using BakeAndCake.Api.Endpoints;
 using Mapster;
@@ -6,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var appConfigString = builder.Configuration.GetConnectionString("AppConfiguration");
-if (appConfigString is null) throw new InvalidOperationException("Missing connection string");
+//var appConfigString = builder.Configuration.GetConnectionString("AppConfiguration");
+//if (appConfigString is null) throw new InvalidOperationException("Missing connection string");
 
 builder.Configuration.Sources.Clear();
 
@@ -16,10 +17,14 @@ builder.Configuration.AddCommandLine(args)
   .AddJsonFile("appsettings.Development", true)
   .AddAzureAppConfiguration(cfg =>
   {
-    cfg.Connect(appConfigString)
+    //cfg.ConfigureClientOptions(i => i.Retry.MaxRetries = 0);
+    //cfg.ConfigureStartupOptions(i =>i.Timeout = TimeSpan.FromSeconds(15));
+
+    cfg.Connect(new Uri("https://codingshortsconfig.azconfig.io"), 
+      new DefaultAzureCredential())
     .Select("DEV:*")
     .TrimKeyPrefix("DEV:");
-  })
+  }, false)
   .AddEnvironmentVariables();
 
 builder.Services.AddDbContext<BakeAndCakeDbContext>(options =>

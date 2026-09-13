@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoeMoney.OrderProcessing", "ShoeMoney.OrderProcessing\ShoeMoney.OrderProcessing.csproj", "{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoeMoney.AppHost", "ShoeMoney.AppHost\ShoeMoney.AppHost.csproj", "{0040A5EE-6C25-F602-C759-593ACB22907C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8FB4EAA-2AFF-45ED-AEC4-E48D9BBF1AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0040A5EE-6C25-F602-C759-593ACB22907C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0040A5EE-6C25-F602-C759-593ACB22907C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0040A5EE-6C25-F602-C759-593ACB22907C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0040A5EE-6C25-F602-C759-593ACB22907C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

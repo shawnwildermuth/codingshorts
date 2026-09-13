@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ShoeContext>(opt =>
 {
-  opt.UseSqlServer(builder.Configuration.GetConnectionString("ShoeMoneyDb"));
+  opt.UseSqlServer(builder.Configuration.GetConnectionString("db"));
 });
 
 builder.AddTelemetry();
